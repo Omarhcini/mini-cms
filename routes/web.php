@@ -19,3 +19,8 @@ Route::get('/bienvenue', function () {
         'cours' => 'Atelier Framework Côté Serveur',
     ]);
 });
+Route::get('/heure', function () {
+    return 'Il est ' . now('Africa/Tunis')->format('H:i:s') . '.';
+});
+
+Route::get('/heure-court', fn () => 'Il est ' . now()->format('H:i:s') . '.');
