@@ -6,28 +6,23 @@ Auteur : Omar Hcini, groupe MDW32.
 
 Mini-CMS évoluera au fil du semestre vers une petite plateforme de publication : pages publiques, back-office authentifié, API JSON et tests Pest. Chaque session se termine par un tag Git (`lab-01`, `lab-01b`, puis un tag par session).
 
-## État actuel (tag lab-01b)
+## État actuel (tag lab-02)
 
-- Routes en closures : `/`, `/bonjour`, `/bonjour-court`, `/bienvenue`, `/version`, `/heure` et `/a-propos`.
-- Vues Blade : `bienvenue`, `heure` et `a-propos`.
+- Routes nommées, toutes servies par des contrôleurs : `PageController` (pages) et `PostController` (articles).
+- Articles stockés dans un tableau PHP, sans base de données pour l'instant.
+- Layout Blade `<x-layout>` avec Tailwind chargé par Vite.
 - Base de données SQLite locale (`database/database.sqlite`, non versionnée).
 
 ## Routes disponibles
 
-| Méthode | URI | Réponse |
-|---|---|---|
-|  GET|HEAD  / ........................................................................................................................ routes/web.php:5
-  POST      _boost/browser-logs ............................................ boost.browser-logs › vendor/laravel/boost/src/BoostServiceProvider.php:106
-  GET|HEAD  a-propos ................................................................................................................ routes/web.php:28
-  GET|HEAD  bienvenue ............................................................................................................... routes/web.php:15
-  GET|HEAD  bonjour .................................................................................................................. routes/web.php:9
-  GET|HEAD  bonjour-court ........................................................................................................... routes/web.php:13
-  GET|HEAD  heure ................................................................................................................... routes/web.php:22
-  GET|HEAD  heure-court ............................................................................................................. routes/web.php:26
-  GET|HEAD  storage/{path} ....................... storage.local › vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvider.php:111
-  PUT       storage/{path} ................ storage.local.upload › vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvider.php:119
-  GET|HEAD  up ............................................ vendor/laravel/framework/src/Illuminate/Foundation/Configuration/ApplicationBuilder.php:224
-
+| Méthode | URI | Nom | Action |
+|---|---|---|---|
+| GET | `/` | `home` | `PageController@home` |
+| GET | `/a-propos` | `about` | `PageController@about` |
+| GET | `/heure` | `time` | `PageController@time` |
+| GET | `/posts` | `posts.index` | `PostController@index` |
+| GET | `/posts/archive/{year}` | `posts.archive` | `PostController@archive` |
+| GET | `/posts/{slug}` | `posts.show` | `PostController@show` |
 ## Prérequis
 
 - PHP et Composer (PHP 8.3 ou plus depuis https://www.php.net/downloads, avec les extensions curl, fileinfo, mbstring, openssl, pdo_sqlite, sqlite3 et zip activées dans php.ini, et Composer depuis https://getcomposer.org).
@@ -72,10 +67,6 @@ Ouvrir ensuite http://localhost:8000 (adresse de l'application, différente de l
 
 ![Page d'accueil de Mini-CMS](screenshots/s01-accueil.png)
 
-### Page Bienvenue
-
-![Page Bienvenue](screenshots/s01-bienvenue.png)
-
 ### Liste des routes
 
 ![Sortie de php artisan route:list](screenshots/s01-route-list.png)
@@ -83,3 +74,15 @@ Ouvrir ensuite http://localhost:8000 (adresse de l'application, différente de l
 ### Page À propos
 
 ![Page A propos](screenshots/s02-a-propos.png)
+
+### Accueil avec le layout
+
+![Page d'accueil avec le layout](screenshots/s03-accueil.png)
+
+### Liste des articles
+
+![Liste des articles](screenshots/s03-articles.png)
+
+### Détail d'un article
+
+![Détail d'un article](screenshots/s03-article.png)
