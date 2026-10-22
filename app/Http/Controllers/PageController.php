@@ -1,23 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\View\View;
 
 class PageController extends Controller
 {
-    public function home()
+    public function home(): View
     {
         return view('home');
     }
 
-    public function about()
+    public function about(): View
     {
         return view('a-propos', [
             'auteur' => 'Omar Hcini',
             'groupe' => 'MDW32',
         ]);
     }
-    public function time()
+    public function time(): View
     {
-        return view('heure');
+        return view('heure', [
+            'heure' => now()->format('H:i'),
+            'date' => now()->format('d/m/Y'),
+        ]);
     }
 }
