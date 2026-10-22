@@ -26,5 +26,8 @@ Route::get('/heure', function () {
 Route::get('/heure-court', fn () => 'Il est ' . now()->format('H:i:s') . '.');
 
 Route::get('/a-propos', function () {
-    return view('a-propos');
+    return view('a-propos', [
+        'auteur' => 'Omar Hcini',
+        'groupe' => 'MDW32',
+    ]);
 });
