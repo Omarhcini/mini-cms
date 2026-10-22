@@ -26,7 +26,7 @@ Réponse :il le range dans gestionnaire d'identification windows et il faut le s
 
 ## 6. Historique depuis lab-01
 
-Nombre de commits depuis lab-01 :7
+Nombre de commits depuis lab-01 :6
 
 Fichiers modifiés depuis lab-01 :5
 
