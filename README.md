@@ -12,6 +12,22 @@ Mini-CMS évoluera au fil du semestre vers une petite plateforme de publication 
 - Vues Blade : `bienvenue`, `heure` et `a-propos`.
 - Base de données SQLite locale (`database/database.sqlite`, non versionnée).
 
+## Routes disponibles
+
+| Méthode | URI | Réponse |
+|---|---|---|
+|  GET|HEAD  / ........................................................................................................................ routes/web.php:5
+  POST      _boost/browser-logs ............................................ boost.browser-logs › vendor/laravel/boost/src/BoostServiceProvider.php:106
+  GET|HEAD  a-propos ................................................................................................................ routes/web.php:28
+  GET|HEAD  bienvenue ............................................................................................................... routes/web.php:15
+  GET|HEAD  bonjour .................................................................................................................. routes/web.php:9
+  GET|HEAD  bonjour-court ........................................................................................................... routes/web.php:13
+  GET|HEAD  heure ................................................................................................................... routes/web.php:22
+  GET|HEAD  heure-court ............................................................................................................. routes/web.php:26
+  GET|HEAD  storage/{path} ....................... storage.local › vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvider.php:111
+  PUT       storage/{path} ................ storage.local.upload › vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvider.php:119
+  GET|HEAD  up ............................................ vendor/laravel/framework/src/Illuminate/Foundation/Configuration/ApplicationBuilder.php:224
+
 ## Prérequis
 
 - PHP et Composer (PHP 8.3 ou plus depuis https://www.php.net/downloads, avec les extensions curl, fileinfo, mbstring, openssl, pdo_sqlite, sqlite3 et zip activées dans php.ini, et Composer depuis https://getcomposer.org).
