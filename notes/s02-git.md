@@ -23,3 +23,11 @@ Réponse :
 ## 5. Git Credential Manager
 
 Réponse :il le range dans gestionnaire d'identification windows et il faut le suprimer quand un etudiant travaille sur une poste de l'iset pour qu'il ne pourrait pousser en votre nom
+
+## 6. Historique depuis lab-01
+
+Nombre de commits depuis lab-01 :7
+
+Fichiers modifiés depuis lab-01 :5
+
+Ce que git tag -n affiche pour lab-01 :lab-01          lab-01
