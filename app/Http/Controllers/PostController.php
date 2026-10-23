@@ -77,6 +77,18 @@ class PostController extends Controller
         return redirect()->route('posts.show', $post);
     }
 
+    public function togglePublication(Post $post): RedirectResponse
+    {
+        $publish = ! $post->is_published;
+
+        $post->update([
+            'is_published' => $publish,
+            'published_at' => $publish ? now() : null,
+        ]);
+
+        return redirect()->route('posts.show', $post);
+    }
+
     public function destroy(Post $post): RedirectResponse
     {
         $post->delete();
