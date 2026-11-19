@@ -1,7 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\View\View;
 
 class PageController extends Controller
@@ -14,6 +18,14 @@ class PageController extends Controller
                 ->latest('published_at')
                 ->take(3)
                 ->get(),
+            'categories' => Category::withCount(['posts' => fn (Builder $query) => $query->published()])
+                ->orderBy('name')
+                ->get(),
+            'tags' => Tag::withCount(['posts' => fn (Builder $query) => $query->published()])
+                ->orderByDesc('posts_count')
+                ->orderBy('name')
+                ->get()
+                ->filter(fn (Tag $tag) => $tag->posts_count > 0),
         ]);
     }
 
@@ -24,6 +36,7 @@ class PageController extends Controller
             'groupe' => 'MDW32',
         ]);
     }
+
     public function time(): View
     {
         return view('heure', [
